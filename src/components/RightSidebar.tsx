@@ -1,6 +1,9 @@
 import React from 'react';
 import ProfileImage from "../assets/images/Avatar.png";
 import searchIcon from "../assets/images/search-icon.jpg";
+import FriendImage1 from "../assets/images/profile.png";
+import FriendImage2 from "../assets/images/people2.png";
+import FriendImage3 from "../assets/images/people3.png";
 const RightSidebar = () => {
   return (
     <div className="p-2 w-full max-w-md mt-2"> {/* Increased max-w-xs to max-w-md for more width */}
@@ -8,8 +11,8 @@ const RightSidebar = () => {
       {/* You Might Like Section */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">You Might Like</h2>
-          <a href="#" className="text-blue-500 text-sm">See All</a>
+          <h5 className="text-md font-semibold opacity-80">You Might Like</h5>
+          <a href="#" className="text-blue-400 text-xs font-semibold">See All</a>
         </div>
         <div className="border-b-2 border-gray-100 mb-4 shadow-gray-600"></div>
         <div className="flex items-center mb-4">
@@ -28,8 +31,8 @@ const RightSidebar = () => {
         {/* Your Friends Section */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-6">
         <div className="flex justify-between items-center mb-4">
-            <h4 className="text-lg font-semibold">Your Friends</h4>
-            <a href="#" className="text-blue-500 text-sm">See All</a>
+            <h5 className="text-md font-semibold opacity-80">Your Friends</h5>
+            <a href="#" className="text-blue-400 text-xs font-semibold">See All</a>
         </div>
 
         {/* Search Input with Icon */}
@@ -38,7 +41,7 @@ const RightSidebar = () => {
             <img src={searchIcon} alt="Search" className="h-10 w-10 opacity-60" /> {/* Search Icon */}
             <input
                 type="text"
-                className="opacity-55 bg-transparent w-full outline-none text-xl text-gray-700 ml-3"
+                className="opacity-55 bg-transparent w-full outline-none text-lg text-gray-700 ml-3"
                 placeholder="input search"
             />
             </div>
@@ -48,7 +51,7 @@ const RightSidebar = () => {
         <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
             <img
-                src="https://randomuser.me/api/portraits/men/75.jpg"
+                src={FriendImage1}
                 alt="Steve Jobs"
                 className="w-12 h-12 rounded-full mr-4"
             />
@@ -57,14 +60,14 @@ const RightSidebar = () => {
                 <p className="text-sm text-gray-500">CEO of Apple</p>
             </div>
             </div>
-            <span className="text-sm text-gray-500">5 minutes ago</span>
+            <span className="text-xs text-gray-500 p-2">5 minute <br /> ago</span>
         </div>
 
         {/* Friend 2 */}
         <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
             <img
-                src="https://randomuser.me/api/portraits/men/42.jpg"
+                src={FriendImage2}
                 alt="Ryan Roslansky"
                 className="w-12 h-12 rounded-full mr-4"
             />
@@ -76,11 +79,10 @@ const RightSidebar = () => {
             <div className="w-2 h-2 bg-green-500 rounded-full"></div> {/* Green dot for online status */}
         </div>
 
-        {/* Friend 3 */}
         <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
             <img
-                src="https://randomuser.me/api/portraits/men/90.jpg"
+                src={FriendImage3}
                 alt="Dylan Field"
                 className="w-12 h-12 rounded-full mr-4"
             />
@@ -91,8 +93,80 @@ const RightSidebar = () => {
             </div>
             <div className="w-2 h-2 bg-green-500 rounded-full"></div> {/* Green dot for online status */}
         </div>
-      </div>
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+            <img
+                src={FriendImage1}
+                alt="Steve Jobs"
+                className="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+                <h5 className="font-semibold">Steve Jobs</h5>
+                <p className="text-sm text-gray-500">CEO of Apple</p>
+            </div>
+            </div>
+            <span className="text-xs text-gray-500 p-2">5 minute <br /> ago</span>
+        </div>
 
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+            <img
+                src={FriendImage2}
+                alt="Ryan Roslansky"
+                className="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+                <h5 className="font-semibold">Ryan Roslansky</h5>
+                <p className="text-sm text-gray-500">CEO of LinkedIn</p>
+            </div>
+            </div>
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div> {/* Green dot for online status */}
+        </div>
+
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+            <img
+                src={FriendImage3}
+                alt="Dylan Field"
+                className="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+                <h5 className="font-semibold">Dylan Field</h5>
+                <p className="text-sm text-gray-500">CEO of Figma</p>
+            </div>
+            </div>
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div> {/* Green dot for online status */}
+        </div>
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+            <img
+                src={FriendImage3}
+                alt="Dylan Field"
+                className="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+                <h5 className="font-semibold">Dylan Field</h5>
+                <p className="text-sm text-gray-500">CEO of Figma</p>
+            </div>
+            </div>
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div> {/* Green dot for online status */}
+        </div>
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+            <img
+                src={FriendImage1}
+                alt="Steve Jobs"
+                className="w-12 h-12 rounded-full mr-4"
+            />
+            <div>
+                <h5 className="font-semibold">Steve Jobs</h5>
+                <p className="text-sm text-gray-500">CEO of Apple</p>
+            </div>
+            </div>
+            <span className="text-xs text-gray-500 p-2">5 minute <br /> ago</span>
+        </div>
+      </div>
+      
 
 
     </div>

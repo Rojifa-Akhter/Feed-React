@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
+import StoryFeed from "../components/StoryFeed";
 import "../styles.css";
 
 const FeedList = () => {
@@ -12,32 +13,38 @@ const FeedList = () => {
     <>
       <Header />
       <div className="flex min-h-screen bg-gray-100 mt-18">
-        {/* Left Sidebar */}
-        <div className="w-full md:w-1/3 px-6 lg:px-20">
-          <LeftSidebar />
+
+        <div className="hidden md:block w-1/4 pl-20 pr-2 h-screen overflow-y-auto custom-scrollbar">
+            <LeftSidebar />
         </div>
 
-        {/* Main Feed Area */}
-        <div className="flex-1 p-4">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+        {/* Main Feed */}
+        <div className="flex-[2] h-screen overflow-y-auto px-4 custom-scrollbar">
+            <div className="w-full">
+            <StoryFeed />
+            </div>
+
+            <div className="bg-white p-2 rounded-lg shadow-sm">
             <h2 className="text-xl font-semibold mb-4">Main Feed</h2>
-            {/* Feed Content */}
-            {/* You can loop through posts here */}
             <textarea
-              value={post}
-              onChange={handlePostChange}
-              className="w-full p-3 border rounded-md"
-              placeholder="What's on your mind?"
+                value={post}
+                onChange={handlePostChange}
+                className="w-full p-3 border rounded-md"
+                placeholder="What's on your mind?"
             />
-            <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md">Post</button>
-          </div>
+            <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md">
+                Post
+            </button>
+            </div>
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-full md:w-1/3 px-6 lg:px-20">
-          <RightSidebar />
+        <div className="hidden md:block w-1/4 pl-2 pr-18 h-screen overflow-y-auto custom-scrollbar">
+            <RightSidebar />
         </div>
-      </div>
+
+        </div>
+
     </>
   );
 };
