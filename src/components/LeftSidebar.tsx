@@ -137,36 +137,39 @@ const LeftSidebar = () => {
 
           <a href="event-single.html" className="block">
             <div className="flex flex-col bg-gray-50 rounded-lg overflow-hidden mb-4 shadow-lg">
-              <img src={feedEventImage} alt="Event Image" className="w-full h-30 object-cover rounded-md" />
-              <div className="p-4">
-                <div className="flex items-center space-x-4 mb-2">
-                  <p className="bg-green-600 text-gray-200 p-1 text-lg font-semibold">10 Jul</p>
-                  <p className="text-gray-800 text-sm">No more terrorism no more cry</p>
+                <img src={feedEventImage} alt="Event Image" className="w-full h-30 object-cover rounded-md mb-4" />
+                
+                <div className="flex items-center space-x-4 mb-2 border-b border-b-gray-200 pb-2 p-4"> {/* Added padding-bottom to create space */}
+                    <p className="bg-green-600 text-gray-200 p-1 text-lg font-semibold">10 Jul</p>
+                    <p className="text-gray-800 text-sm">No more terrorism no more cry</p>
                 </div>
-                <div className="flex justify-between items-center">
-                  <p className="text-sm text-gray-400">17 People Going</p>
-                  <a href="#0" className="text-blue-400 text-sm font-semibold border-1 rounded-sm">
+
+                <div className="flex justify-between items-center mb-2 p-4">
+                    <p className="text-sm text-gray-400">17 People Going</p>
+                    <a href="#0" className="text-blue-400 text-sm font-semibold border-1 rounded-sm">
                     <span className='p-2 text-xs'>Going</span></a>
                 </div>
-              </div>
+                
             </div>
-          </a>
+           </a>
+
           <a href="event-single.html" className="block">
             <div className="flex flex-col bg-gray-50 rounded-lg overflow-hidden mb-4 shadow-lg">
-              <img src={feedEventImage} alt="Event Image" className="w-full h-30 object-cover rounded-md" />
-              <div className="p-4">
-                <div className="flex items-center space-x-4 mb-2">
-                  <p className="bg-green-600 text-gray-200 p-1 text-lg font-semibold">10 Jul</p>
-                  <p className="text-gray-800 text-sm">No more terrorism no more cry</p>
+                <img src={feedEventImage} alt="Event Image" className="w-full h-30 object-cover rounded-md mb-4" />
+                
+                <div className="flex items-center space-x-4 mb-2 border-b border-b-gray-200 pb-2 p-4"> {/* Added padding-bottom to create space */}
+                    <p className="bg-green-600 text-gray-200 p-1 text-lg font-semibold">10 Jul</p>
+                    <p className="text-gray-800 text-sm">No more terrorism no more cry</p>
                 </div>
-                <div className="flex justify-between items-center">
-                  <p className="text-sm text-gray-400">17 People Going</p>
-                  <a href="#0" className="text-blue-400 text-sm font-semibold border-1 rounded-sm">
+
+                <div className="flex justify-between items-center mb-2 p-4">
+                    <p className="text-sm text-gray-400">17 People Going</p>
+                    <a href="#0" className="text-blue-400 text-sm font-semibold border-1 rounded-sm">
                     <span className='p-2 text-xs'>Going</span></a>
                 </div>
-              </div>
+                
             </div>
-          </a>
+           </a>
         </div>
 
       </div>
