@@ -7,15 +7,15 @@ const App_URL = "http://127.0.0.1:8000/api";
 
 export const PostService = async (): Promise<Post[]> => {
   try {
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem("access_token");
 
     const response = await axios.get<Post[]>(`${App_URL}/feeds`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    
-    return response.data; 
+
+    return response.data;
   } catch (error) {
     console.error("Error fetching posts:", error);
     throw error;

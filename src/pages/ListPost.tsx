@@ -1,46 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { PostService } from "../services/PostService"; // Service to fetch posts
-import PostItem from "./PostItem"; // Component to display individual posts
+import type { Post } from "../types/Post";
+import { PostService } from "../services/PostService";
+import PostItem from "./PostItem";
 
-// Define the Post type
-interface Post {
-  id: number;
-  title: string;
-  image: string;
-}
-
-const PostList = () => {
-  // Set the initial state types for posts, loading, and error
-  const [posts, setPosts] = useState<Post[]>([]); // Explicitly type the posts as Post[]
-  const [loading, setLoading] = useState<boolean>(true); // Loading state as boolean
-  const [error, setError] = useState<string | null>(null); // Error state as string or null
+const ListPost: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fetch posts when the component mounts
     const fetchPosts = async () => {
       try {
-        const fetchedPosts = await PostService(); // Fetch posts from the service
-        setPosts(fetchedPosts); // Update the state with the fetched posts
+        const fetchedPosts = await PostService();
+        setPosts(fetchedPosts);
       } catch (err) {
-        setError("Error loading posts."); // If error, update the error state
+        setError("Error loading posts.");
       } finally {
-        setLoading(false); // Set loading to false once done
+        setLoading(false);
       }
     };
 
-    fetchPosts(); // Call the fetch function
-  }, []); // Empty dependency array ensures this runs only once when the component mounts
+    fetchPosts();
+  }, []);
 
-  if (loading) return <div>Loading...</div>; // Show loading message while fetching
-  if (error) return <div>{error}</div>; // Show error message if there's an issue
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div>
+    <div className="space-y-6">
       {posts.map((post) => (
-        <PostItem key={post.id} feeds={post} /> // Render each post using the PostItem component
+        <PostItem key={post.id} feeds={post} />
       ))}
     </div>
   );
 };
 
-export default PostList;
+export default ListPost;

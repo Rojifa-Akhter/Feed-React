@@ -7,26 +7,35 @@ import shadowImage1 from "../assets/images/dark_shape2.svg";
 import shadowImage2 from "../assets/images/shape1.png";
 import logo from "../assets/images/logo.svg";
 import { FcGoogle } from "react-icons/fc";
+import { RegisterUser } from "../services/PostService"; 
 
 const Register = () => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [first_name, setfirst_name] = useState("");
+  const [last_name, setlast_name] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Check if passwords match
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
 
-    navigate("/feeds");
+    try {
+      const response = await RegisterUser(first_name, last_name, email, password); 
+      localStorage.setItem("access_token", response.access_token); 
+      navigate("/feeds"); 
+    } catch (err) {
+      setError("Registration failed. Please try again.");
+      console.error("Error registering user:", err);
+    }
   };
 
   return (
@@ -80,8 +89,8 @@ const Register = () => {
                 <input
                   type="text"
                   required
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={first_name}
+                  onChange={(e) => setfirst_name(e.target.value)}
                   className="w-full p-3 border border-gray-100 rounded-md 
                   focus:outline-none focus:ring-0 focus:border-gray-300"
                 />
@@ -95,8 +104,8 @@ const Register = () => {
                 <input
                   type="text"
                   required
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  value={last_name}
+                  onChange={(e) => setlast_name(e.target.value)}
                   className="w-full p-3 border border-gray-100 rounded-md 
                   focus:outline-none focus:ring-0 focus:border-gray-300"
                 />
