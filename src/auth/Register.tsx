@@ -26,7 +26,7 @@ const Register = () => {
       return;
     }
 
-    navigate("/feed");
+    navigate("/feeds");
   };
 
   return (

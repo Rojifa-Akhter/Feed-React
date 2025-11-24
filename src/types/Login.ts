@@ -1,6 +1,7 @@
 export interface Login{
     id: number;
-    eamil: string;
+    email: string;
     password: string;
+    access_token: string;
 
 }

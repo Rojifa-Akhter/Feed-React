@@ -6,6 +6,7 @@ import shadowImage1 from "../assets/images/dark_shape2.svg";
 import shadowImage2 from "../assets/images/shape1.png";
 import logo from "../assets/images/logo.svg";
 import { FcGoogle } from "react-icons/fc";
+import { LoginUser } from "../services/PostService";
 import "../styles.css"; 
 
 const Login = () => {
@@ -18,9 +19,11 @@ const Login = () => {
     e.preventDefault();
     
     try {
-      console.log('Logged in:', { email, password });
-      navigate('/feed');
+      const response = await LoginUser(email, password);
+      localStorage.setItem('access_token', response.access_token);
+      navigate('/feeds');
     } catch (err) {
+      
       setError("Invalid credentials, please try again.");
     }
   };

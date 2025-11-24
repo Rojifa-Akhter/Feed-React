@@ -4,5 +4,6 @@ export interface Register{
     last_name: string;
     email: string;
     password: string;
+    access_token: string;
 
 }
