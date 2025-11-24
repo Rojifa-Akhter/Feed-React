@@ -5,6 +5,7 @@ import type { Register } from "../types/Register";
 
 const App_URL = "http://127.0.0.1:8000/api"; 
 
+//feed page
 export const PostService = async (): Promise<Post[]> => {
   try {
     const token = localStorage.getItem("access_token");
@@ -21,6 +22,21 @@ export const PostService = async (): Promise<Post[]> => {
     throw error;
   }
 };
+//create post
+export const createPost = async (formData: FormData) => {
+  const token = localStorage.getItem("access_token");
+
+  const response = await axios.post(`${App_URL}/feeds`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+};
+
+//login and register
 
 export const LoginUser = async (email: string, password: string): Promise<Login> => {
   try {
@@ -46,4 +62,6 @@ export const RegisterUser = async (firstName: string, lastName: string, email: s
     console.error("Error registering user:", error);
     throw error;
   }
+
+
 };

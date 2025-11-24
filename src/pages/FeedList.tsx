@@ -8,6 +8,15 @@ import ListPost from "./ListPost";
 import "../styles.css";
 
 const FeedList = () => {
+
+  // 🔥 State for reloading posts
+  const [reload, setReload] = useState(false);
+
+  // 🔥 Function sent to CreatePost
+  const onPostCreated = () => {
+    setReload(!reload); // toggle reload state
+  };
+
   return (
     <>
       <Header />
@@ -23,11 +32,13 @@ const FeedList = () => {
           <div className="w-full">
             <StoryFeed />
           </div>
-            <div className="px-6">
-                <CreatePost />
-            </div>
-            <div className="px-6">
-            <ListPost /> 
+
+          <div className="px-6">
+            <CreatePost onPostCreated={onPostCreated} /> {/* 🔥 FIXED */}
+          </div>
+
+          <div className="px-6">
+            <ListPost reload={reload} /> {/* 🔥 Tell ListPost to reload */}
           </div>
 
         </div>
