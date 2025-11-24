@@ -28,11 +28,11 @@ const Login = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <div className="w-full h-221 bg-gray-100 flex items-center justify-center">
-        <div className="absolute top-[-60px] left-0 w-1/3">
+        <div className="absolute top-[-3px] left-0 w-1/3">
           <img src={shadowImage2} alt="Shadow Image 2" className="w-40 h-120" />
         </div>
         
-        <div className="absolute top-[160px] left-30">
+        <div className="absolute top-[160px] left-35">
           <img src={login} alt="Login Image" className="w-140 h-130" />
         </div>
         
@@ -53,7 +53,7 @@ const Login = () => {
             </button>
 
 
-            <div className="text-center mb-6">
+            <div className="text-center mb-6 text-gray-400">
             <span className="mx-2">-</span> Or <span className="mx-2">-</span>
             </div>
 
