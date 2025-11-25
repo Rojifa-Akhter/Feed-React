@@ -23,28 +23,28 @@ const FeedList = () => {
       <div className="flex min-h-screen bg-gray-100 mt-18">
 
         {/* Left Sidebar */}
-        <div className="hidden md:block w-1/4 pl-20 pr-2 h-screen overflow-y-auto custom-scrollbar">
+        <div className="hidden md:block w-1/4 pl-16 h-screen overflow-y-auto custom-scrollbar">
           <LeftSidebar />
         </div>
 
         {/* Main Feed */}
-        <div className="flex-[2] h-screen overflow-y-auto px-4 custom-scrollbar">
+        <div className="flex-[1] h-screen overflow-y-auto px-4 custom-scrollbar">
           <div className="w-full">
             <StoryFeed />
           </div>
 
-          <div className="px-6">
+          <div className="px-4">
             <CreatePost onPostCreated={onPostCreated} /> {/* 🔥 FIXED */}
           </div>
 
-          <div className="px-6">
+          <div className="px-4">
             <ListPost reload={reload} /> {/* 🔥 Tell ListPost to reload */}
           </div>
 
         </div>
 
         {/* Right Sidebar */}
-        <div className="hidden md:block w-1/4 pl-2 pr-15 h-screen overflow-y-auto custom-scrollbar">
+        <div className="hidden md:block w-1/4 pr-10 h-screen overflow-y-auto custom-scrollbar">
           <RightSidebar />
         </div>
 

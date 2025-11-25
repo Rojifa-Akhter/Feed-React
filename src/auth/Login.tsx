@@ -6,6 +6,7 @@ import shadowImage1 from "../assets/images/dark_shape2.svg";
 import shadowImage2 from "../assets/images/shape1.png";
 import logo from "../assets/images/logo.svg";
 import { FcGoogle } from "react-icons/fc";
+import defaultImage from "../assets/images/profile-1.png";
 import { LoginUser } from "../services/PostService";
 import "../styles.css"; 
 
@@ -16,17 +17,20 @@ const Login = () => {
   const navigate = useNavigate(); 
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await LoginUser(email, password);
-      localStorage.setItem('access_token', response.access_token);
-      navigate('/feeds');
-    } catch (err) {
-      
-      setError("Invalid credentials, please try again.");
-    }
-  };
+  e.preventDefault();
+
+  try {
+    const response = await LoginUser(email, password);  // Assuming LoginUser returns user data and access token
+    // Save both the access token and user data in localStorage
+    localStorage.setItem('access_token', response.access_token);
+    localStorage.setItem('user', JSON.stringify(response.user));  // Save the user object
+
+    navigate('/feeds');  // Redirect to the feed page
+  } catch (err) {
+    setError("Invalid credentials, please try again.");
+  }
+};
+
 
   return (
     <div className="flex min-h-screen bg-gray-100">

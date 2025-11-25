@@ -31,7 +31,7 @@ const ListPost: React.FC<ListPostProps> = ({ reload }) => {
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {posts.map((post) => (
         <PostItem key={post.id} feeds={post} />
       ))}
